@@ -348,7 +348,7 @@ namespace WCell.RealmServer
 		/// </summary>
 		public static string DBType = "mysql5";
 
-		private static string dbWorldConnectionString = @"Server=127.0.0.1;Port=3306;Database=WCellRealmServerWorld;CharSet=utf8;Uid=root;Pwd=;";
+        private static string dbWorldConnectionString = @"Server=127.0.0.1;Port=3306;Database=WCellRealmServerWorld;CharSet=utf8;Uid=root;Pwd=;Convert Zero Datetime=true;Allow Zero Datetime=true;";
 
 		/// <summary>
 		/// The connection string for the realm server world database.
@@ -361,7 +361,7 @@ namespace WCell.RealmServer
 		}
 
 
-        private static string dbContentConnectionString = @"Server=127.0.0.1;Port=3306;Database=WCellRealmServerContent;CharSet=utf8;Uid=root;Pwd=;";
+        private static string dbContentConnectionString = @"Server=127.0.0.1;Port=3306;Database=WCellRealmServerContent;CharSet=utf8;Uid=root;Pwd=;Convert Zero Datetime=true;Allow Zero Datetime=true;";
 
         /// <summary>
         /// The connection string for the realm server content database.

@@ -81,7 +81,8 @@ ECHO.
 ECHO.
 ECHO [Importing] Started...
 ECHO [Importing] Main UDB database ...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Full_DB\%udb-main%.sql
+ECHO [File Path] %udbdir%\Full_DB\%udb-main%.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Full_DB\%udb-main%.sql"
 mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < .\Data\vehicle_patch.sql
 ECHO [Importing] Finished
 ECHO.
@@ -107,33 +108,33 @@ ECHO.
 ECHO [Importing] Started...
 ECHO [Importing] UDB database changesets...
 ECHO [Importing] UDB database changeset 394...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\394_corepatch_mangos_10546_to_10720.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\394_corepatch_mangos_10546_to_10720.sql"
 ECHO [Importing] UDB updatepack 394...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\394_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\394_updatepack_mangos.sql"
 ECHO [Importing] UDB database changeset 395...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\395_corepatch_mangos_10721_to_10892.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\395_corepatch_mangos_10721_to_10892.sql"
 ECHO [Importing] UDB updatepack 395...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\395_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\395_updatepack_mangos.sql"
 ECHO [Importing] UDB updatepack 396...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\396_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\396_updatepack_mangos.sql"
 ECHO [Importing] UDB database changeset 397...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\397_corepatch_mangos_10905_to_11064.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\397_corepatch_mangos_10905_to_11064.sql"
 ECHO [Importing] UDB updatepack 397...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\397_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\397_updatepack_mangos.sql"
 ECHO [Importing] UDB database changeset 398...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\398_corepatch_mangos_11065_to_11156.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\398_corepatch_mangos_11065_to_11156.sql"
 ECHO [Importing] UDB updatepack 398...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\398_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\398_updatepack_mangos.sql"
 ECHO [Importing] UDB database changeset 399...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\399_corepatch_mangos_11157_to_11242.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\399_corepatch_mangos_11157_to_11242.sql"
 ECHO [Importing] UDB updatepack 399...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\399_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\399_updatepack_mangos.sql"
 ECHO [Importing] UDB updatepack 400...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\400_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\400_updatepack_mangos.sql"
 ECHO [Importing] UDB database changeset 401...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\401_corepatch_mangos_11305_to_11376.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\401_corepatch_mangos_11305_to_11376.sql"
 ECHO [Importing] UDB updatepack 401...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\401_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\401_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE    
@@ -145,9 +146,9 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB database changeset 394...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\394_corepatch_mangos_10546_to_10720.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\394_corepatch_mangos_10546_to_10720.sql"
 ECHO [Importing] UDB updatepack 394...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\394_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\394_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
@@ -159,9 +160,9 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB database changeset 395...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\395_corepatch_mangos_10721_to_10892.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\395_corepatch_mangos_10721_to_10892.sql"
 ECHO [Importing] UDB updatepack 395...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\395_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\395_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
@@ -173,7 +174,7 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB updatepack 396...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\396_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\396_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
@@ -185,9 +186,9 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB database changeset 397...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\397_corepatch_mangos_10905_to_11064.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\397_corepatch_mangos_10905_to_11064.sql"
 ECHO [Importing] UDB updatepack 397...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\397_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\397_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
@@ -199,9 +200,9 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB database changeset 398...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\398_corepatch_mangos_11065_to_11156.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\398_corepatch_mangos_11065_to_11156.sql"
 ECHO [Importing] UDB updatepack 398...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\398_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\398_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
@@ -213,9 +214,9 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB database changeset 399...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\399_corepatch_mangos_11157_to_11242.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\399_corepatch_mangos_11157_to_11242.sql"
 ECHO [Importing] UDB updatepack 399...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\399_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\399_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
@@ -227,7 +228,7 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB updatepack 400...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\400_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\400_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
@@ -239,9 +240,9 @@ ECHO.
 ECHO.
 ECHO Started...
 ECHO [Importing] UDB database changeset 401...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\401_corepatch_mangos_11305_to_11376.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\401_corepatch_mangos_11305_to_11376.sql"
 ECHO [Importing] UDB updatepack 401...
-mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < %udbdir%\Updates\0.12.1_additions\401_updatepack_mangos.sql
+mysql -h %server% --user=%user% --password=%pass% --port=%port% %wdb% < "%udbdir%\Updates\0.12.1_additions\401_updatepack_mangos.sql"
 ECHO [Importing] Finished
 ECHO.
 PAUSE
