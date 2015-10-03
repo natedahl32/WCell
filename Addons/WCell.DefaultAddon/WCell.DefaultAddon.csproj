@@ -280,6 +280,7 @@
     <Compile Include="Instances\Kalimdor\ZulFarrak.cs" />
     <Compile Include="Instances\Eastern Kingdoms\ZulGurub.cs" />
     <Compile Include="Quests\DeathKnightQuests.cs" />
+    <Compile Include="Quests\DurotarQuests.cs" />
     <Compile Include="Spells\DeathKnight\DeathKnightDiseases.cs" />
     <Compile Include="Spells\DeathKnight\DeathKnightFrostFixes.cs" />
     <Compile Include="Spells\DeathKnight\DeathKnightBloodFixes.cs" />
