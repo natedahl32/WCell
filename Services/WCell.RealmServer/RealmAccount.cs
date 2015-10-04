@@ -479,6 +479,73 @@ namespace WCell.RealmServer
 			}
 		}
 
+        /// <summary>
+        /// Initializes a Bot account. A few minor differences from a regular players account initialization
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="accountName"></param>
+        public static void InitializeBotAccount(IRealmClient client, string accountName)
+        {
+            if (!client.IsConnected)
+            {
+                return;
+            }
+
+            if (RealmServer.Instance.IsAccountLoggedIn(accountName))
+            {
+                log.Info("Client ({0}) tried to use online Account: {1}.", client, accountName);
+                LoginHandler.SendAuthSessionErrorReply(client, LoginErrorCode.AUTH_ALREADY_ONLINE);
+            }
+            else if (!RealmServer.Instance.AuthClient.IsConnected)
+            {
+                LoginHandler.SendAuthSessionErrorReply(client, LoginErrorCode.AUTH_DB_BUSY);
+            }
+            //else if (ValidateAuthentication(client, accountName))
+            //{
+                // else request it from the AuthServer
+                var addr = client.ClientAddress;
+                if (addr == null)
+                {
+                    return;
+                }
+
+                var accountInfo = RealmServer.Instance.RequestAccountInfo(accountName, addr.GetAddressBytes());
+
+                if (accountInfo == null)
+                {
+                    // Account not found
+                    RealmServer.Instance.Error(client, Resources.FailedToRetrieveAccount, accountName);
+
+                    LoginHandler.SendAuthSessionErrorReply(client, LoginErrorCode.AUTH_UNKNOWN_ACCOUNT);
+                    return;
+                }
+
+                // create new Account with newly fetched account-info
+                var account = new RealmAccount(accountName, accountInfo);
+
+                // Unregister account first just in case it already is registered
+                RealmServer.Instance.UnregisterAccount(account);
+                RealmServer.Instance.RegisterAccount(account);
+                account.LoadCharacters();
+                account.LoadAccountData();
+
+                account.Client = client;
+                client.Account = account;
+
+                log.Info("Account \"{0}\" logged in from {1}.", accountName, client.ClientAddress);
+
+                if (RealmServer.Instance.ClientCount > RealmServerConfiguration.MaxClientCount &&
+                    !account.Role.MaySkipAuthQueue)
+                {
+                    AuthQueue.EnqueueClient(client);
+                }
+                else
+                {
+                    LoginHandler.InviteToRealm(client);
+                }
+            //}
+        }
+
 		/// <summary>
 		/// Validates the auth-info sent by the client.
 		/// Called within the IO-Queue's Context

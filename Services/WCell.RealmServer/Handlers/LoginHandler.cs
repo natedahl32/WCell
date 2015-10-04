@@ -255,7 +255,7 @@ namespace WCell.RealmServer.Handlers
 		/// <remarks>Executed in IO-Context.</remarks>
 		/// <param name="client"></param>
 		/// <param name="charLowId"></param>
-		private static void LoginCharacter(IRealmClient client, uint charLowId)
+		public static void LoginCharacter(IRealmClient client, uint charLowId)
 		{
 			var acc = client.Account;
 			if (acc == null)
