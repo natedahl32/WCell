@@ -491,12 +491,7 @@ namespace WCell.RealmServer
                 return;
             }
 
-            if (RealmServer.Instance.IsAccountLoggedIn(accountName))
-            {
-                log.Info("Client ({0}) tried to use online Account: {1}.", client, accountName);
-                LoginHandler.SendAuthSessionErrorReply(client, LoginErrorCode.AUTH_ALREADY_ONLINE);
-            }
-            else if (!RealmServer.Instance.AuthClient.IsConnected)
+            if (!RealmServer.Instance.AuthClient.IsConnected)
             {
                 LoginHandler.SendAuthSessionErrorReply(client, LoginErrorCode.AUTH_DB_BUSY);
             }

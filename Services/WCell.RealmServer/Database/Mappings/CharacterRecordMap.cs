@@ -60,6 +60,7 @@ namespace WCell.RealmServer.Database.Mappings
             Map(x => x.BaseIntellect).Not.Nullable();
             Map(x => x.BaseAgility).Not.Nullable();
             Map(x => x.GodMode);
+            Map(x => x.IsBot);
             Map(x => x.Health).Not.Nullable();
             Map(x => x.BaseHealth).Not.Nullable();
             Map(x => x.Power).Not.Nullable();

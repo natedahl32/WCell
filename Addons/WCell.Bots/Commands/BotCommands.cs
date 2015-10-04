@@ -127,6 +127,7 @@ namespace WCell.Bots.Commands
                 record.FacialHair = (byte)Utility.Random(byte.MaxValue);
                 record.Outfit = (byte)Utility.Random(byte.MaxValue);
                 record.GodMode = false;
+                record.IsBot = true;
 
                 record.SetupNewRecord(archetype);
 
@@ -139,29 +140,33 @@ namespace WCell.Bots.Commands
 
                 RealmServer.RealmServer.IOQueue.AddMessage(charCreateTask);
 
-                return client;
-            }
-
-            private static void CharCreateCallback(IRealmClient client, CharacterRecord newCharRecord)
-            {
+                // Try to save new character to database
                 try
                 {
-                    RealmWorldDBMgr.DatabaseProvider.SaveOrUpdate(newCharRecord);
+                    RealmWorldDBMgr.DatabaseProvider.SaveOrUpdate(record);
                 }
                 catch (Exception e)
                 {
                     try
                     {
                         RealmWorldDBMgr.OnDBError(e);
-                        RealmWorldDBMgr.DatabaseProvider.SaveOrUpdate(newCharRecord);
+                        RealmWorldDBMgr.DatabaseProvider.SaveOrUpdate(record);
                     }
                     catch (Exception)
                     {
-                        return;
+                        return null;
                     }
                 }
 
-                client.Account.Characters.Add(newCharRecord);
+                // Add character to the account
+                client.Account.Characters.Add(record);
+
+                return client;
+            }
+
+            private static void CharCreateCallback(IRealmClient client, CharacterRecord newCharRecord)
+            {
+                // Do nothing. Maybe this can be null?
             }
         }
 

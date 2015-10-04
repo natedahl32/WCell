@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using WCell.AuthServer;
 using WCell.AuthServer.Database;
+using WCell.Bots.AI;
 using WCell.Core.Addons;
 using WCell.Core.Initialization;
+using WCell.RealmServer.Entities;
 
 namespace WCell.Bots
 {
@@ -74,7 +76,10 @@ namespace WCell.Bots
         [Initialization(InitializationPass.Last, "Initialize Bots Addon")]
         public static void InitBots()
         {
-            
+            //Character.LoggedIn += (chr, isFirst) =>
+            //{
+            //    chr.Brain = new BotBrain(chr);
+            //};
         }
 
         #endregion

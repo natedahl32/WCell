@@ -207,6 +207,7 @@ namespace WCell.RealmServer.Database.Entities
 		{
 			CanSave = true;
 			AbilitySpells = new List<SpellRecord>();
+            IsBot = false;
 		}
 
 		public CharacterRecord(long accountId)
@@ -622,6 +623,12 @@ namespace WCell.RealmServer.Database.Entities
 			get;
 			set;
 		}
+
+        public bool IsBot
+        {
+            get;
+            set;
+        }
 
 		#region Dynamic Properties
 		public int Health
