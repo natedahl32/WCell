@@ -5,6 +5,7 @@ using System.Text;
 using WCell.AuthServer;
 using WCell.AuthServer.Database;
 using WCell.Bots.AI;
+using WCell.Bots.Entities;
 using WCell.Core.Addons;
 using WCell.Core.Initialization;
 using WCell.RealmServer.Entities;
@@ -76,10 +77,14 @@ namespace WCell.Bots
         [Initialization(InitializationPass.Last, "Initialize Bots Addon")]
         public static void InitBots()
         {
-            //Character.LoggedIn += (chr, isFirst) =>
-            //{
-            //    chr.Brain = new BotBrain(chr);
-            //};
+            Character.LoggedIn += (chr, isFirst) =>
+            {
+                // when we log in, activate the brains for our Bots
+                if (chr is BotPlayer)
+                {
+                    chr.Brain.OnActivate();
+                }
+            };
         }
 
         #endregion

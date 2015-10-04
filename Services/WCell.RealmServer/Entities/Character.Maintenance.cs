@@ -423,7 +423,7 @@ namespace WCell.RealmServer.Entities
 		/// Loads and adds the Character to its Map.
 		/// </summary>
 		/// <remarks>Called initially from the IO-Context</remarks>
-		internal void LoadAndLogin()
+		internal protected void LoadAndLogin()
 		{
 			// set Zone *before* Map
 			// TODO: Also retrieve Battlegrounds

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using WCell.AuthServer.Accounts;
+using WCell.Bots.Handlers;
 using WCell.Bots.Network;
 using WCell.Constants;
 using WCell.Intercommunication.DataTypes;
@@ -98,7 +99,7 @@ namespace WCell.Bots.Commands
                 uint characterId = client.Account.Characters[0].EntityLowId;
                 
                 // Login the bot
-                LoginHandler.LoginCharacter(client, characterId);
+                BotLoginHandler.LoginBot(client, characterId);
             }
 
             protected BotRealmClient CreateNewCharacter(string characterName)

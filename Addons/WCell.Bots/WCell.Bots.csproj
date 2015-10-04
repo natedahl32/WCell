@@ -59,9 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\BotBrain.cs" />
+    <Compile Include="AI\DefaultBotAIActionCollection.cs" />
     <Compile Include="Bots.cs" />
     <Compile Include="Commands\BotCommands.cs" />
     <Compile Include="Entities\BotPlayer.cs" />
+    <Compile Include="Handlers\BotLoginHandler.cs" />
     <Compile Include="Network\BotPacketMgr.cs" />
     <Compile Include="Network\BotRealmClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,9 +118,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
