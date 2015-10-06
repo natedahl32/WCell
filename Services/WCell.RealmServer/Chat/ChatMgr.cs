@@ -435,7 +435,7 @@ namespace WCell.RealmServer.Chat
 		#endregion
 
 		#region Send Helpers
-		private static RealmPacketOut CreateObjectChatMessage(ChatMsgType type, ChatLanguage language, INamedEntity obj)
+		public static RealmPacketOut CreateObjectChatMessage(ChatMsgType type, ChatLanguage language, INamedEntity obj)
 		{
 			var name = obj.Name;
 
@@ -460,7 +460,7 @@ namespace WCell.RealmServer.Chat
 		/// <param name="msg">the message itself</param>
 		/// <param name="tag">any chat tags for the object</param>
 		/// <returns>the generated chat packet</returns>
-		private static RealmPacketOut CreateObjectChatMessage(ChatMsgType type,
+		public static RealmPacketOut CreateObjectChatMessage(ChatMsgType type,
 			ChatLanguage language, INamedEntity obj, string msg, ChatTag tag)
 		{
 			var packet = CreateObjectChatMessage(type, language, obj);
@@ -481,7 +481,7 @@ namespace WCell.RealmServer.Chat
 		/// <param name="target">the target or null (if its an area message)</param>
 		/// <param name="msg">the message itself</param>
 		/// <param name="tag">the chat tag of the chatter</param>
-		private static RealmPacketOut CreateCharChatMessage(ChatMsgType type, ChatLanguage language, IEntity id1, IEntity id2,
+		public static RealmPacketOut CreateCharChatMessage(ChatMsgType type, ChatLanguage language, IEntity id1, IEntity id2,
 			string target, string msg, ChatTag tag)
 		{
 			return CreateCharChatMessage(type, language, id1.EntityId, id2.EntityId, target, msg, tag);
@@ -496,7 +496,7 @@ namespace WCell.RealmServer.Chat
 		/// <param name="id2">the ID of the receiver</param>
 		/// <param name="target">the target or null (if its an area message)</param>
 		/// <param name="msg">the message itself</param>
-		private static RealmPacketOut CreateCharChatMessage(ChatMsgType type, ChatLanguage language, IChatter id1, IChatter id2,
+		public static RealmPacketOut CreateCharChatMessage(ChatMsgType type, ChatLanguage language, IChatter id1, IChatter id2,
 			string target, string msg)
 		{
 			return CreateCharChatMessage(type, language, id1.EntityId, id2.EntityId, target, msg, id1.ChatTag);
@@ -513,7 +513,7 @@ namespace WCell.RealmServer.Chat
 		/// <param name="msg">the message itself</param>
 		/// <param name="tag">the chat tag of the chatter</param>
 		/// <returns>Might return null</returns>
-		private static RealmPacketOut CreateCharChatMessage(ChatMsgType type, ChatLanguage language, EntityId id1, EntityId id2,
+		public static RealmPacketOut CreateCharChatMessage(ChatMsgType type, ChatLanguage language, EntityId id1, EntityId id2,
 			string target, string msg, ChatTag tag)
 		{
 			var packet = new RealmPacketOut(RealmServerOpCode.SMSG_MESSAGECHAT);

@@ -10,10 +10,15 @@ using RealmPacketHandler =
     WCell.Core.Network.PacketHandler<WCell.RealmServer.Network.IRealmClient, WCell.RealmServer.RealmPacketIn>;
 using WCell.RealmServer.Network;
 using WCell.RealmServer;
+using WCell.Core.Initialization;
+using System.Reflection;
 
 namespace WCell.Bots.Network
 {
-    public class BotPacketMgr : PacketManager<IRealmClient, RealmPacketIn, ClientPacketHandlerAttribute>
+    /// <summary>
+    /// BotPacketMgr class used to handle packets sent to a bot. These are CLIENT packets, thus we handle RealmPacketOut and not in.
+    /// </summary>
+    public class BotPacketMgr : PacketManager<IRealmClient, RealmPacketIn, BotPacketHandlerAttribute>
     {
         private static readonly Logger s_log = LogManager.GetCurrentClassLogger();
 
@@ -62,5 +67,13 @@ namespace WCell.Bots.Network
 		    return true;
 		}
 		#endregion
+
+        [Initialization(InitializationPass.Second, "Register packet handlers")]
+        public static void RegisterPacketHandlers()
+        {
+            Instance.RegisterAll(Assembly.GetExecutingAssembly());
+
+            //s_log.Debug(Resources.RegisteredAllHandlers);
+        }
     }
 }

@@ -9,14 +9,14 @@ namespace WCell.Addons.Default.Quests
 {
     public static class DurotarQuests
     {
-        static uint CUTTING_TEETH_QUESTION_ID = 788;
+        static uint CUTTING_TEETH_QUEST_ID = 788;
 
         [Initialization]
         [DependentInitialization(typeof(QuestMgr))]
         public static void FixIt()
         {
             // Remove bad requirement
-            var cuttingTeeth = QuestMgr.GetTemplate(CUTTING_TEETH_QUESTION_ID);
+            var cuttingTeeth = QuestMgr.GetTemplate(CUTTING_TEETH_QUEST_ID);
             cuttingTeeth.ReqAllFinishedQuests.Remove(787);
         }
     }

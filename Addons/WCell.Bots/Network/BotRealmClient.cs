@@ -9,7 +9,7 @@ using WCell.RealmServer;
 
 namespace WCell.Bots.Network
 {
-    public class BotRealmClient : FakeClientBase<IRealmClient, RealmPacketIn, RealmPacketOut, BotPacketMgr>, IRealmClient
+    public class BotRealmClient : BotClientBase<IRealmClient, RealmPacketIn, RealmPacketOut, BotPacketMgr>, IRealmClient
     {
         public static event Action<IRealmClient, RealmPacketIn> ServerReceivedPacket;
 
