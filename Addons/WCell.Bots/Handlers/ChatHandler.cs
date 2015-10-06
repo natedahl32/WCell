@@ -27,17 +27,24 @@ namespace WCell.Bots.Handlers
         {
             ChatMsgType msgType = (ChatMsgType)packet.ReadByte();
             ChatLanguage msgLang = (ChatLanguage)packet.ReadUInt32();
-            EntityId sender = packet.ReadEntityId();
+            EntityId msgSender = packet.ReadEntityId();
             packet.ReadInt32();
             EntityId recipient = packet.ReadEntityId();
             string msg = ReadMessage(packet);
             ChatTag msgChatTag = (ChatTag)packet.ReadByte();
 
-            if (client.IsConnected && client.ActiveCharacter != null)
+            var chr = client.ActiveCharacter;
+            if (client.IsConnected && chr != null)
             {
-                // TODO: Get the sender entity if we have a valid entity
-                // TODO: If we are the sender, don't respond to it, we know what we sent
-                HandleBotChatMessage(null, msg, msgLang, msgType, client.ActiveCharacter);
+                // Get the sender entity if we have a valid entity
+                var sender = chr.Map.GetObject(msgSender) as IChatter;
+
+                // If we are the sender, don't respond to it, we know what we sent
+                if (sender != null && (sender is BotPlayer) && chr.EntityId == (sender as BotPlayer).EntityId)
+                    return;
+                
+                // Handle the chat message
+                HandleBotChatMessage(sender, msg, msgLang, msgType, chr);
             }
         }
 
