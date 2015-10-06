@@ -65,6 +65,8 @@
     <Compile Include="Entities\BotPlayer.cs" />
     <Compile Include="Handlers\BotLoginHandler.cs" />
     <Compile Include="Handlers\ChatHandler.cs" />
+    <Compile Include="Handlers\GroupHandler.cs" />
+    <Compile Include="Handlers\GuildHandlers.cs" />
     <Compile Include="Network\BotClientBase.cs" />
     <Compile Include="Network\BotPacketHandlerAttribute.cs" />
     <Compile Include="Network\BotPacketMgr.cs" />

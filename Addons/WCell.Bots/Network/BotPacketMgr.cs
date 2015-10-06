@@ -16,7 +16,7 @@ using System.Reflection;
 namespace WCell.Bots.Network
 {
     /// <summary>
-    /// BotPacketMgr class used to handle packets sent to a bot. These are CLIENT packets, thus we handle RealmPacketOut and not in.
+    /// BotPacketMgr class used to handle packets sent to a bot.
     /// </summary>
     public class BotPacketMgr : PacketManager<IRealmClient, RealmPacketIn, BotPacketHandlerAttribute>
     {
